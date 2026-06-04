@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grade Calculator | My Moonie </title>
+<title>Grade Calculator | My Moonie</title>
 <style>
 *{
     margin:0;
@@ -17,28 +17,36 @@ body{
     justify-content:center;
     align-items:center;
     padding:20px;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    background:linear-gradient(135deg,#5b21b6,#7c3aed,#a855f7);
 }
 .card{
     width:100%;
     max-width:520px;
-    background:rgba(255,255,255,0.98);
-    border-radius:24px;
+    background:rgba(255,255,255,0.97);
+    border-radius:28px;
     padding:32px;
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    box-shadow:0 25px 60px rgba(91,33,182,.35);
+    border:1px solid rgba(168,85,247,.25);
 }
 h1{
     text-align:center;
-    color:#0f172a;
+    color:#6d28d9;
     margin-bottom:8px;
     font-size:2rem;
 }
 .subtitulo{
     text-align:center;
-    color:#64748b;
-    margin-bottom:28px;
+    color:#8b5cf6;
+    margin-bottom:8px;
     font-size:0.95rem;
-    letter-spacing:1px;
+    letter-spacing:2px;
+    font-weight:600;
+}
+.moonie{
+    text-align:center;
+    color:#a855f7;
+    margin-bottom:24px;
+    font-size:1rem;
 }
 .input-group{
     margin-bottom:16px;
@@ -52,26 +60,27 @@ label{
 input{
     width:100%;
     padding:12px;
-    border:2px solid #cbd5e1;
-    border-radius:12px;
+    border:2px solid #ddd6fe;
+    border-radius:14px;
     font-size:16px;
     transition:.3s;
 }
 input:focus{
     outline:none;
-    border-color:#334155;
+    border-color:#8b5cf6;
 }
 button{
     width:100%;
     padding:14px;
     border:none;
     border-radius:14px;
-    background:linear-gradient(135deg,#1e293b,#334155);
+    background:linear-gradient(135deg,#7c3aed,#a855f7);
     color:white;
     font-size:17px;
     font-weight:600;
     cursor:pointer;
     transition:.3s;
+    box-shadow:0 10px 25px rgba(124,58,237,.35);
 }
 button:hover{
     transform:translateY(-2px);
@@ -84,9 +93,9 @@ button:hover{
     text-align:center;
 }
 .ok{
-    background:#f8fafc;
-    color:#0f172a;
-    border:1px solid #cbd5e1;
+    background:#faf5ff;
+    color:#581c87;
+    border:1px solid #d8b4fe;
 }
 .error{
     background:#fef2f2;
@@ -94,15 +103,10 @@ button:hover{
     border:1px solid #fecaca;
 }
 .nota{
-    font-size:48px;
-    font-weight:700;
+    font-size:52px;
+    font-weight:800;
     margin:10px 0;
-}
-.footer{
-    margin-top:20px;
-    text-align:center;
-    color:#94a3b8;
-    font-size:0.8rem;
+    color:#7c3aed;
 }
 </style>
 </head>
@@ -111,6 +115,9 @@ button:hover{
 <h1>🌙 My Moonie</h1>
 <p class="subtitulo">
 GRADE CALCULATOR
+</p>
+<p class="moonie">
+✨ Para mi Moonie ✨
 </p>
 <div class="input-group">
 <label>Primer corte (30%)</label>
@@ -128,9 +135,6 @@ GRADE CALCULATOR
 Calcular nota necesaria
 </button>
 <div id="resultado" class="resultado"></div>
-<div class="footer">
-30% • 40% • 30%
-</div>
 </div>
 <script>
 function calcular(){
