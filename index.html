@@ -19,23 +19,35 @@ body{
     padding:20px;
     background:linear-gradient(135deg,#5b21b6,#7c3aed,#a855f7);
     overflow:hidden;
+    position:relative;
 }
-body::before{
-    content:"✦";
+/* Fondo decorativo */
+.estrellas{
     position:absolute;
-    top:10%;
-    left:10%;
-    font-size:40px;
-    color:rgba(255,255,255,0.15);
+    inset:0;
+    pointer-events:none;
+    color:rgba(255,255,255,.18);
+    font-size:22px;
 }
-body::after{
-    content:"☾";
+.estrellas span{
     position:absolute;
-    bottom:10%;
-    right:10%;
-    font-size:60px;
-    color:rgba(255,255,255,0.15);
 }
+.e1{top:5%;left:8%;}
+.e2{top:12%;left:25%;}
+.e3{top:7%;right:18%;}
+.e4{top:20%;right:8%;}
+.e5{top:32%;left:5%;}
+.e6{top:40%;right:15%;}
+.e7{top:55%;left:10%;}
+.e8{top:65%;right:7%;}
+.e9{bottom:18%;left:15%;}
+.e10{bottom:8%;right:22%;}
+.e11{top:15%;left:50%;}
+.e12{bottom:30%;left:40%;}
+.l1{top:10%;right:30%;font-size:45px;}
+.l2{bottom:12%;left:25%;font-size:50px;}
+.l3{top:55%;right:35%;font-size:40px;}
+.l4{top:28%;left:20%;font-size:35px;}
 .card{
     width:100%;
     max-width:520px;
@@ -44,6 +56,7 @@ body::after{
     padding:32px;
     box-shadow:0 25px 60px rgba(0,0,0,.25);
     position:relative;
+    z-index:2;
 }
 h1{
     text-align:center;
@@ -122,6 +135,26 @@ button:hover{
 </style>
 </head>
 <body>
+<div class="estrellas">
+<span class="e1">✦</span>
+<span class="e2">✧</span>
+<span class="e3">✦</span>
+<span class="e4">✧</span>
+<span class="e5">✦</span>
+<span class="e6">✧</span>
+<span class="e7">✦</span>
+<span class="e8">✧</span>
+<span class="e9">✦</span>
+<span class="e10">✧</span>
+<span class="e11">✦</span>
+<span class="e12">✧</span>
+
+☾
+☾
+☽
+☾
+
+</div>
 <div class="card">
 <h1>🌙 My Moonie</h1>
 <p class="subtitulo">
@@ -174,24 +207,24 @@ if(necesaria > 5){
 else if(necesaria <= 0){
     resultado.className = "resultado ok";
     resultado.innerHTML = `
-        <h3> Ya no necesitas na amorcito</h3>
-        <p>Ya tienes ese promedio asegurado mi vida </p>
+        <h3>🎉 Objetivo alcanzado</h3>
+        <p>Ya tienes ese promedio asegurado, Moonie 🌙</p>
     `;
 }
 else{
     resultado.className = "resultado ok";
     let mensaje;
     if(necesaria <= 2){
-        mensaje = "Vas bien amor ";
+        mensaje = "Vas bien amor ❤️";
     }
     else if(necesaria <= 3.5){
-        mensaje = "Tú puedes reinota ";
+        mensaje = "Tú puedes reinota 🌙";
     }
     else if(necesaria <= 4.5){
         mensaje = "Ta duro, pero tú puedes mi amor";
     }
     else{
-        mensaje = "Dale amor, te irá super ✨";
+        mensaje = "Dale amor, te irá bien ✨";
     }
     resultado.innerHTML = `
         <h3>${mensaje}</h3>
