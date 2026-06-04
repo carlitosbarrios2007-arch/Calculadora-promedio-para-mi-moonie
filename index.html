@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Notas para Luna ❤️</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:linear-gradient(135deg,#ffb6c1,#ffc0cb,#d8b4fe);
+}
+.card{
+    width:100%;
+    max-width:520px;
+    background:rgba(255,255,255,.95);
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+h1{
+    text-align:center;
+    color:#d63384;
+    margin-bottom:8px;
+}
+.subtitulo{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+.input-group{
+    margin-bottom:15px;
+}
+label{
+    display:block;
+    margin-bottom:6px;
+    color:#444;
+    font-weight:600;
+}
+input{
+    width:100%;
+    padding:12px;
+    border:2px solid #f4c2d7;
+    border-radius:12px;
+    font-size:16px;
+}
+input:focus{
+    outline:none;
+    border-color:#d63384;
+}
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#ff4f8b,#c445ff);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+button:hover{
+    transform:translateY(-2px);
+}
+.resultado{
+    margin-top:20px;
+    padding:20px;
+    border-radius:15px;
+    display:none;
+    text-align:center;
+}
+.ok{
+    background:#ffe6f1;
+    color:#b0005a;
+}
+.error{
+    background:#ffe6e6;
+    color:#c62828;
+}
+.nota{
+    font-size:42px;
+    font-weight:bold;
+    margin:10px 0;
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🌷 Calculadora de Notas 🌷</h1>
+<p class="subtitulo">
+Hecha con ❤️ para Luna
+</p>
+<div class="input-group">
+<label>Nota del primer corte</label>
+<input type="number" id="n1" min="0" max="5" step="0.01">
+</div>
+<div class="input-group">
+<label>Nota del segundo corte</label>
+<input type="number" id="n2" min="0" max="5" step="0.01">
+</div>
+<div class="input-group">
+<label>Promedio final deseado</label>
+<input type="number" id="meta" min="0" max="5" step="0.01">
+</div>
+<button onclick="calcular()">
+✨ Calcular nota necesaria ✨
+</button>
+<div id="resultado" class="resultado"></div>
+</div>
+<script>
+function calcular(){
+const n1 = parseFloat(document.getElementById("n1").value);
+const n2 = parseFloat(document.getElementById("n2").value);
+const meta = parseFloat(document.getElementById("meta").value);
+const resultado = document.getElementById("resultado");
+if(isNaN(n1) || isNaN(n2) || isNaN(meta)){
+    resultado.style.display="block";
+    resultado.className="resultado error";
+    resultado.innerHTML="⚠️ Completa todos los campos.";
+    return;
+}
+const acumulado = (n1*0.30) + (n2*0.40);
+const necesaria = (meta - acumulado)/0.30;
+resultado.style.display="block";
+if(necesaria > 5){
+    resultado.className="resultado error";
+    resultado.innerHTML = `
+    <h3>💔 Meta muy alta</h3>
+    <p>Necesitarías una nota de</p>
+    <div class="nota">${necesaria.toFixed(2)}</div>
+    <p>y supera la nota máxima de 5.0</p>
+    `;
+}
+else if(necesaria <= 0){
+    resultado.className="resultado ok";
+    resultado.innerHTML = `
+    <h3>🎉 ¡Excelente!</h3>
+    <p>Ya alcanzaste esa meta con los dos primeros cortes.</p>
+    `;
+}
+else{
+    resultado.className="resultado ok";
+    let mensaje = "✨ Tú puedes lograrlo ✨";
+    if(necesaria <= 2){
+        mensaje = "🌸 Vas súper bien 🌸";
+    }
+    else if(necesaria <= 3.5){
+        mensaje = "💖 Ya casi lo consigues 💖";
+    }
+    else if(necesaria <= 4.5){
+        mensaje = "🌟 Un último esfuerzo 🌟";
+    }
+    resultado.innerHTML = `
+    <h3>${mensaje}</h3>
+    <p>Necesitas sacar</p>
+    <div class="nota">${necesaria.toFixed(2)}</div>
+    <p>en el tercer corte para alcanzar un promedio de ${meta.toFixed(2)} ❤️</p>
+    `;
+}
+}
+</script>
+</body>
+</ht
